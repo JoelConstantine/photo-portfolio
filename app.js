@@ -1,3 +1,7 @@
+// Get Environment Variables
+var dotenv = require('dotenv');
+dotenv.load()
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,16 +9,78 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var api = require('./routes/api');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
+
+var LocalStrategy = require('passport-local').Strategy;
+
+var userAccounts = [
+  { id: 1, username: process.env.USER, password: process.env.PASS, email: process.env.EMAIL}
+];
+
+
+
+function findById(id,fn) {
+  var idx = id -1;
+  if (userAccounts[idx]) {
+    fn(null,userAccounts[idx]);
+  } else {
+    fn(new Error('User ' + id + ' does not exist'));
+  }
+}
+
+function findByUserName(name,fn) {
+  for(var i = 0, len = userAccounts.length; i < len; i++) {
+
+    var user = userAccounts[i];
+  
+    if (user.username === name) {
+      return fn(null, user);
+    }
+  }
+
+  return fn(null,null);
+}
+
+passport.serializeUser(function(user,done) {
+  done(null,user.id);
+});
+
+passport.deserializeUser(function(id,done) {
+  findById(id,function(err,user) {
+    done(err,user);
+  });
+});
+
+passport.use(new LocalStrategy(
+  function(username,password,done) {
+    process.nextTick(function() {
+      findByUserName(username,function(err,user) {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false, { message: 'Error with user ' + username }); }
+        if (user.password != password) { return done(null,false, {message: 'Invalid password'}); }
+        return done(null,user);
+      })
+    });
+  }
+));
+
 
 // Setting up DB
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('192.168.1.116:27017/photoportfolio');
+var db = monk(process.env.MONGO_DB);
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var api = require('./routes/api');
+var admin = require('./routes/admin');
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,13 +94,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set up passport
+app.use( session({ secret: 'thisismyfirstsessionsecretvariable' }) );
+app.use( passport.initialize() );
+app.use( passport.session() );
+app.use( flash() );
+
 app.use(function(req,res,next){
   req.db = db;
   next();
 });
 
+
+
+
+
 app.use('/', routes);
 app.use('/api', api);
+app.use('/admin', admin);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -67,6 +144,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
 
 
 module.exports = app;
