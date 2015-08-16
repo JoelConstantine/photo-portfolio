@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.container
+    div.row
+      div.col-xs-12.col-sm-6.col-sm-offset-3.text-center
+        h1= title
+        
+
+        form#adminLogin(name="adminlogin",method="POST",action="/admin/login")
+          div.row.form-group
+            input#loginUsername.form-control(type="text",placeholder="Username",name="username")
+          div.row.form-group
+            input#loginPassword.form-control(type="password",placeholder="Password",name="password")
+          div.row.form-group
+            button#btnSubmit.btn.btn-flat(type="submit") Login
