@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+    form#formAddPhoto(name="addphoto",method="post",action="/addphoto")
+      input#inputPhotoName(type="text",placeholder="PhotoName",name="name")
+      input#inputPhotoUrl(type="text",placeholder="URL",name="url")
+      input#inputPhotoWidth(type="number",placeholder="width",name="width")
+      input#inputPhotoHeight(type="number",placeholder="height",name="height")
+      button#btnSubmit(type="submit") submit
