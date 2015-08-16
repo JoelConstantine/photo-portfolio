@@ -3,10 +3,13 @@ extends layout
 block content
   h1.
     Photos
+  a(href="/admin/newphoto") Add Photo
   div.row
     each photo, i in photos
       div.col-xs-12.col-sm-4.col-lg-2.photo-box
+        h4.
+          #{photo.name}
         img(src="#{photo.url}")
         form(name="deletephoto",method="post",action="/admin/deletephoto")
-          input(type="hidden",name="id",value="#{photo.id}")
+          input(type="hidden",name="photoID",value="#{photo._id}")
           button(type="submit") delete
