@@ -1,21 +1,34 @@
 var express = require('express');
 var passport = require('passport');
-var router  = express.Router();
+var adminController = require('../controllers/adminController');
+var photoController = require('../controllers/admin/photoController');
+var admin  = express.Router();
 
-router.get('/', function(req,res) {
+function checkAuthentication(req, res, fn) {
+	console.log("Checking authentication");
+	if(req.isAuthenticated()) { 
+		fn(req,res);
+	} else {
+		res.redirect('/admin/login');
+	}	
+}
+
+admin.get('/', adminController.Index);
+
+admin.get('/', function(req,res) {
 	if(req.isAuthenticated()) { res.send("User is logged in"); }
 	else {
 		res.redirect('/admin/login');
 	}
 });
 
-router.get('/login', function(req,res) {
+admin.get('/login', function(req,res) {
 	res.render('admin/login', {
 		"title" : "Title",
 		user : req.user});
 });
 
-router.post('/login',
+admin.post('/login',
 	passport.authenticate('local', { failureRedirect: '/admin/login', failureFlash: true}),
 	function(req,res) {
 		res.redirect('/admin');
@@ -24,34 +37,40 @@ router.post('/login',
 /* ================= PHOTO SECTIONS ================ */
 
 // Manage photos
-router.get('/photos', function(req,res,next) {
-	if(req.isAuthenticated()) { 
-		var db = req.db;
-		var collection = db.get('mediafile');
-		collection.find({},{},function(e, data) {
-		  	res.render('admin/managephotos', {
-		  		'title' : "Photos",
-		  		'photos' : data
-		  	});
-		});
-	}
-	else {
-		res.redirect('/admin/login');
-	}	
+admin.get('/photos', function(req,res,next) {
+	checkAuthentication(req,res, photoController.Index);	
 })
 
 /* Add photo */
-router.get('/newphoto', function(req,res,next) {
-	if(req.isAuthenticated()) { res.render('admin/newphoto', {title:'Add New Photo'}); }
-	else {
-		res.redirect('/admin/login');
-	}
+admin.get('/newphoto', function(req,res,next) {
+	checkAuthentication(req,res, photoController.newPhoto);
+});
+
+admin.post('/addphoto', function(req, res, next) {
+	checkAuthentication(req,res, function() {
+		var insertPhoto = photoController.addPhoto(req,res);
+
+		insertPhoto.on('success',function() {
+			res.redirect('/admin/photos');
+		})
+	});
 })
 
-router.post('/deletephoto',function(req,res,next) {
-	if(req.isAuthenticated()) { res.redirect('/admin/photos'); }
+/* Delete photos */
+admin.post('/deletephoto',function(req,res,next) {
+	if(req.isAuthenticated()) { 
+		var db = req.db;
+		var collection = db.get('mediafile');
+		var photoID = req.body.photoID;
+		collection.remove({'_id' : photoID }, function(err) {
+			if (err) {}
+			else {
+				res.redirect('/admin/photos');
+			}
+		})
+	}
 	else {
 		res.redirect('/admin/login');
 	}
 })
-module.exports = router;
+module.exports = admin;
