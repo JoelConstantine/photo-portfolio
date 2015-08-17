@@ -1,10 +1,32 @@
 extends layout
 
 block content
-  h1= title
-    form#formAddPhoto(name="addphoto",method="post",action="/admin/addphoto")
-      input#inputPhotoName(type="text",placeholder="PhotoName",name="name")
-      input#inputPhotoUrl(type="text",placeholder="URL",name="url")
-      input#inputPhotoWidth(type="number",placeholder="width",name="width")
-      input#inputPhotoHeight(type="number",placeholder="height",name="height")
-      button#btnSubmit(type="submit") submit
+  
+    div.container
+      h1= title
+      div.col-xs-12.col-sm-8.col-sm-off-set-2
+        form#formAddPhoto(name="addphoto",method="post",action="/admin/addphoto")
+          div.row
+            div.col-xs-12.form-group
+              input#inputPhotoName.form-control(type="text",placeholder="PhotoName",name="name")
+            div.col-xs-12.col-sm-6.form-group
+              input#inputPhotoWidth.form-control(type="number",placeholder="width",name="width")
+            div.col-xs-12.col-sm-6.form-group
+              input#inputPhotoHeight.form-control(type="number",placeholder="height",name="height")
+            div.col-xs-12.form-group
+              label Full Url
+              input#inputPhotoUrlFull.form-control(type="text",placeholder="URL",name="urlFull")
+            div.col-xs-12.form-group
+              label 1600 Url
+              input#inputPhotoUrl1600.form-control(type="text",placeholder="URL",name="url1600")
+            div.col-xs-12.form-group
+              label 1200 Url
+              input#inputPhotoUrl1200.form-control(type="text",placeholder="URL",name="url1200")
+            div.col-xs-12.form-group
+              label 800 Url
+              input#inputPhotoUrl800.form-control(type="text",placeholder="URL",name="url800")
+            div.col-xs-12.form-group
+              label 400 Url
+              input#inputPhotoUrl400.form-control(type="text",placeholder="URL",name="url400")
+            div.col-xs-12.col-sm-6.col-sm-offset-3.form-group
+              button#btnSubmit.btn.btn-primary.btn-lg.btn-block(type="submit") submit
