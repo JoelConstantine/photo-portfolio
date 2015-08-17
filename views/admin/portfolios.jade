@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  
+  div.container
+    h1.
+      Portfolio
+    a(href="/admin/newportfolio") Add Portfolios
+    ul
+      each portfolio, i in portfolios
+        li
+          a(href="/admin/portfolios/#{portfolio.slug}") #{portfolio.name}
