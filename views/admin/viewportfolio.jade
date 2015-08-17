@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div.container
+    h1.
+      #{portfolio.name}
+    div.row
+      each photo, i in portfolio.photos
+          div.col-xs-12.col-sm-2
+            img.img-responsive(src="#{photo.urls['400']}")
+    form.row(name="addPhoto",method="POST",action="/admin/portfolios/#{portfolio.slug}/add")
+      h3.text-center Add Image
+      div.col-xs-12.col-sm-6.col-sm-offset-3.form-group
+        label(for="#photoID") Photo ID
+        input#photoID.form-control(type="text",name="photoID",placeholder="Photo ID")
+      div.col-xs-12.col-sm-2.col-sm-offset-5.form-group
+        button#btnSubmit.btn.btn-primary.btn-block(type="submit") Add
+
+
+
+
