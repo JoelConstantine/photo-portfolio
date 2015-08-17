@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1.
+    Admin
+  ul
+  each section, i in sections
+    li
+      a(href="#{section.url}") #{section.name}
