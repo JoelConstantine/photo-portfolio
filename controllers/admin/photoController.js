@@ -1,7 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var photoModel = require('../../models/photoModel');
-var photoTable = 'mediafile';
+var db_table = 'mediafile';
 
 var photoController = {
 	Index : function(req,res) {
@@ -31,17 +31,25 @@ var photoController = {
 		// Format the Data for insertion
 		var newPhoto = {
 			"name" : req.body.name,
-			"url" : req.body.url,
+			"urls" : {
+				"full" : req.body.urlFull,
+				"1600" : req.body.url1600,
+				"1200" : req.body.url1200,
+				"800"  : req.body.url800,
+				"400"  : req.body.url400,
+			},
 			"width" : req.body.width,
 			"height" : req.body.height
 		};
 
 		// Grab our table
-		var collection = db.get('mediafile');
+		var collection = db.get(db_table);
 
 		return collection.insert(newPhoto);
 	},
-	deletePhoto: function(req, id) {}
+	deletePhoto: function(req, id) {
+
+	}
 }
 
 module.exports = photoController;
