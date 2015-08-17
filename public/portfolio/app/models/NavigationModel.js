@@ -16,12 +16,12 @@ angular.module('Portfolio.Common')
 					'slug' : '/portfolios',
 					'subs' : [
 						{ 
-							'name' : 'Portraits 1',
+							'name' : 'Portraits',
 							'slug' : '/portraits-1'
 						},
 						{ 
-							'name' : 'Portraits 2',
-							'slug' : '/portfolio-2'
+							'name' : 'Travel',
+							'slug' : '/travel'
 						},
 						]
 					}
