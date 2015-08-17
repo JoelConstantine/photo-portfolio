@@ -2,10 +2,10 @@ var express = require('express');
 var passport = require('passport');
 var adminController = require('../controllers/adminController');
 var photoController = require('../controllers/admin/photoController');
+var portfolioController = require('../controllers/portfolioController');
 var admin  = express.Router();
 
 function checkAuthentication(req, res, fn) {
-	console.log("Checking authentication");
 	if(req.isAuthenticated()) { 
 		fn(req,res);
 	} else {
@@ -13,13 +13,8 @@ function checkAuthentication(req, res, fn) {
 	}	
 }
 
-admin.get('/', adminController.Index);
-
 admin.get('/', function(req,res) {
-	if(req.isAuthenticated()) { res.send("User is logged in"); }
-	else {
-		res.redirect('/admin/login');
-	}
+	checkAuthentication(req,res, adminController.Index);
 });
 
 admin.get('/login', function(req,res) {
@@ -73,4 +68,18 @@ admin.post('/deletephoto',function(req,res,next) {
 		res.redirect('/admin/login');
 	}
 })
+
+/* Portfolio sections */
+admin.get('/portfolios', function(req,res,next) {
+	checkAuthentication(req,res, portfolioController.Index);
+});
+
+admin.get('/portfolios/:slug', function(req,res,next) {
+	checkAuthentication(req,res, portfolioController.viewPortfolio);
+})
+
+admin.post('/portfolios/:slug/add', function(req,res,next) {
+	checkAuthentication(req,res, portfolioController.AddPhoto);
+}); 
+
 module.exports = admin;
