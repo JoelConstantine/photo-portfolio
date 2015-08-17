@@ -1,0 +1,19 @@
+.main-nav {
+	float: left;
+	margin-top: 10px;
+}
+
+
+.nav-menu {
+	padding-left: 15px;
+}
+
+.nav-element {
+	display: inline-block;
+	list-style: none;
+	margin-right: 10px;
+
+	a {
+		color: inherit;
+	}
+}
