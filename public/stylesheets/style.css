@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 15px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +9,27 @@ a {
 
 .photo-box img {
 	max-width: 100%;
+}
+
+.main-content {
+	height: 80vh;
+}
+
+.nav-menu {
+	padding-left: 15px;
+}
+
+.nav-element {
+	display: inline-block;
+	list-style: none;
+	margin-right: 10px;
+}
+
+.photo-wrapper {
+	height: 100%;
+}
+
+.photo-wrapper img {
+	height: 100%;
+	width: auto;
 }
