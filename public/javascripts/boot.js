@@ -5,10 +5,15 @@ head.load(
 	{ file: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-route.js'},
 	{ file: 'portfolio/app/App.js'},
 	{ file: 'portfolio/app/models/NavigationModel.js'},
+	{ file: 'portfolio/app/models/PortfolioModel.js'},
 	{ file: 'portfolio/app/services/EndpointService.js'},
 
 	{ file: 'portfolio/navigation/navigation.js'},
 	{ file: 'portfolio/navigation/controllers/NavigationController.js'},
 
+	{ file: 'portfolio/portfolios/Portfolios.js'},
+	{ file: 'portfolio/portfolios/controllers/PortfoliosController.js'},
+	{ file: 'portfolio/portfolios/controllers/PortfolioController.js'},
+	
 	{ file: 'portfolio/portfolio.js' }
 );

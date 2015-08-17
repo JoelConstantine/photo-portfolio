@@ -1,0 +1,11 @@
+<div class="portfolio-list">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-3" ng-repeat="portfolio in portfolios.portfolios">
+				<a href="/portofolios/{{portfolio.slug}}" class="portfolio-box">
+					<img src="{{portfolio.previewIMG}}" class="img-responsive">
+					<h4 class="portfolio-label">{{portfolio.name}}</h4>
+				</a>
+			</div>	
+		</div>
+</div>
