@@ -1,5 +1,7 @@
 var portfolio = angular.module('Portfolio', [
-		'ngRoute'
+		'ngRoute',
+		'Portfolio.Common',
+		'Portfolio.Navigation'
 	]);
 
 portfolio.config(function($routeProvider) {
