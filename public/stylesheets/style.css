@@ -1,6 +1,7 @@
 body {
   padding: 15px 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 a {
@@ -33,3 +34,42 @@ a {
 	height: 100%;
 	width: auto;
 }
+
+.portfolio-box {
+	border-radius: 5px;
+	border: 1px solid #333;
+	color: #222;	
+	position: relative;
+	display: block;
+}
+
+.portfolio-box img {
+	opacity: 0.3;
+	transition: 250ms;
+}
+
+.portfolio-box:hover img {
+	opacity: 0.5;
+}
+
+.portfolio-box:hover {
+	color: #222;
+}
+
+.portfolio-box:hover .portfolio-label {
+	font-size: 48px;
+	line-height: 3.5;
+}
+
+.portfolio-label {
+	position: absolute;
+	line-height: 4;
+	font-weight: 700;
+	font-size: 42px;
+	text-align: center;
+	width: 100%;
+	top: 0;
+	color: inherit;
+	transition: 250ms;
+}
+
