@@ -1,6 +1,13 @@
 extends layout
 
 block content
-  h1 Portfolio Page
-  p Welcome to #{title}
-  div(ng-view="")
+  h1 Joel Constantine
+  nav#mainNav.dropdown(ng-controller="NavigationCtrl as nav")
+    ul.nav-menu
+      li.nav-element.dropdown(ng-repeat="page in nav.pages")
+        h3#dropdownMenu1.dropdown-toggle(data-toggle="dropdown") {{page.name}}
+        ul(aria-labelledby="dropdownMenu1",ng-class="{'dropdown-menu': page.subs.length > 0}")
+          li(ng-repeat="sub in page.subs") 
+            a(href="#") {{sub.name}}
+
+  div.main-content(ng-view="")
