@@ -3,8 +3,8 @@ angular.module('Portfolio.Common')
 		var service=this,
 			endpoint = { URI: '/', root: 'api/'};
 
-		service.getURL = function(model) {
-			return endpoint.URI + root + model;
+		service.getUrl = function(model) {
+			return endpoint.URI + endpoint.root + model;
 		}
 
 		service.getUrlForSlug = function(model, slug) {
