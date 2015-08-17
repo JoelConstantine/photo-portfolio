@@ -6,7 +6,7 @@ block content
     ul.nav-menu
       li.nav-element.dropdown(ng-repeat="page in nav.pages")
         h3#dropdownMenu1.dropdown-toggle(data-toggle="dropdown") {{page.name}}
-        ul(aria-labelledby="dropdownMenu1",ng-class="{'dropdown-menu': page.subs.length > 0}")
+        ul.dropdown-menu(aria-labelledby="dropdownMenu1",ng-if="page.subs.length > 0")
           li(ng-repeat="sub in page.subs") 
             a(href="#") {{sub.name}}
 
