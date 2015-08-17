@@ -7,7 +7,6 @@ angular.module('Portfolio.Navigation')
 
 			navigation.getNavigation = function() {
 				navigation.pages = NavigationModel.all();
-				console.log(navigation.pages);
 			}
 
 			navigation.getNavigation();	
