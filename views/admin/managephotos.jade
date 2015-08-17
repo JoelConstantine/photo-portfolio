@@ -9,7 +9,7 @@ block content
       div.col-xs-12.col-sm-4.col-lg-2.photo-box
         h4.
           #{photo.name}
-        img(src="#{photo.url}")
+        img(src="#{photo.urls[400]}")
         form(name="deletephoto",method="post",action="/admin/deletephoto")
           input(type="hidden",name="photoID",value="#{photo._id}")
-          button(type="submit") delete
+          button.btn.btn-danger(type="submit") delete
