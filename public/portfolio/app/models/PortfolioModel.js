@@ -2,7 +2,7 @@ angular.module("Portfolio.Common")
 	.service("PortfolioModel", 
 	function($http, EndpointService) {
 		var service = this,
-			MODEL = '/portfolios/';
+			MODEL = 'portfolios/';
 
 		service.all = function() {
 
@@ -11,7 +11,7 @@ angular.module("Portfolio.Common")
 
 		service.fetch = function(portfolio_slug) {
 			return $http.get(
-				EndpoingConfigService.getUrl( MODEL )
+				EndpointService.getUrlForSlug( MODEL, portfolio_slug )
 			);
 		}
 	});
