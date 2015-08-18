@@ -1,15 +1,17 @@
 doctype html
 html(ng-app="Portfolio")
   head
-    title= title
+    title Portfolio Website
     link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/Open+Sans:400,300,600,700,800')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    base(href="/")
   body
     block content
 
     footer
       p copyright whatever
+
     script(src='/javascripts/head.load.min.js')
     script(src='/javascripts/boot.js')
