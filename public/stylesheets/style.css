@@ -9,6 +9,11 @@ header, .header {
   top: 0;
   width: 100vw;
   height: 15vh; }
+  @media (max-width: 360px) {
+    header, .header {
+      padding: 0 15px;
+      position: static;
+      height: auto; } }
 
 footer, .footer {
   position: fixed;
@@ -17,30 +22,35 @@ footer, .footer {
   width: 100%;
   padding: 15px 50px;
   text-align: right; }
+  @media (max-width: 360px) {
+    footer, .footer {
+      position: static;
+      padding: 10px 5px; } }
 
 a {
   color: #00B7FF; }
 
-.main-content {
-  margin-top: 15vh;
-  height: 75vh; }
-
-.main-content.image-list {
-  padding: 0; }
-
-.scroll-wrapper {
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: 100%;
-  padding: 0 0 0 15px; }
-
 .main-nav {
   float: left;
   margin-top: 10px; }
+  @media (max-width: 768px) {
+    .main-nav {
+      float: right; } }
+  @media (max-width: 360px) {
+    .main-nav {
+      float: none;
+      display: block;
+      margin-top: 0px; } }
 
 .nav-menu {
   padding-left: 15px; }
+  @media (max-width: 360px) {
+    .nav-menu {
+      padding-left: 0;
+      margin-top: 0; }
+      .nav-menu h3 {
+        margin: 0;
+        font-size: 14px; } }
 
 .nav-element {
   display: inline-block;
@@ -52,6 +62,11 @@ a {
 .site-header {
   float: left;
   margin-right: 15px; }
+  @media (max-width: 768px) {
+    .site-header {
+      font-size: 1.5em;
+      float: none;
+      margin-bottom: 0px; } }
 
 .photo-box img {
   max-width: 100%; }
@@ -59,20 +74,53 @@ a {
 .image-box {
   display: inline-block;
   height: 100%; }
+  .image-box:last-of-type img {
+    margin-right: 0; }
   .image-box img {
     height: 100%;
     width: auto;
     margin: 0 15px; }
-
-.image-box
-.image-box:last-of-type img {
-  margin-right: 0; }
+  @media (max-width: 360px) {
+    .image-box {
+      display: block;
+      margin-bottom: 5px; }
+      .image-box img {
+        margin: 0;
+        width: 100%;
+        height: auto; } }
 
 .photo-wrapper {
   height: 100%; }
   .photo-wrapper img {
     height: 100%;
     width: auto; }
+    @media (max-width: 360px) {
+      .photo-wrapper img {
+        width: 100%;
+        height: auto; } }
+
+.main-content {
+  margin-top: 15vh;
+  height: 75vh; }
+  @media (max-width: 360px) {
+    .main-content {
+      margin-top: 0;
+      height: auto;
+      width: 100%; } }
+
+.main-content.image-list {
+  padding: 0; }
+
+.scroll-wrapper {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  padding: 0 0 0 15px; }
+  @media (max-width: 360px) {
+    .scroll-wrapper {
+      padding: 0 5px;
+      width: 100%; } }
 
 .portfolio-box {
   border-radius: 5px;

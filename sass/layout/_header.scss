@@ -5,4 +5,10 @@
 .site-header {
 	float: left;
 	margin-right: 15px;
+
+	@media (max-width: $screen-sm) {
+		font-size: 1.5em;
+		float: none;
+		margin-bottom: 0px;
+	}
 }

@@ -6,17 +6,27 @@
 	display: inline-block;
 	height: 100%;
 
+	&:last-of-type {
+		img {
+			margin-right: 0;
+		}
+	}
+
 	img {
 		height: 100%;
 		width: auto;
 		margin: 0 15px;
 	}
-}
 
-.image-box 
-
-.image-box:last-of-type img {
-	margin-right: 0;
+	@media (max-width: $screen-xs) {
+		display: block;
+		margin-bottom: 5px;
+		img {
+			margin: 0;
+			width: 100%;
+			height: auto;
+		}
+	}
 }
 
 .photo-wrapper {
@@ -24,5 +34,40 @@
 	img {
 		height: 100%;
 		width: auto;
+
+		@media (max-width: $screen-xs) {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.main-content {
+	margin-top: 15vh;
+	height: 75vh;
+
+	@media (max-width: $screen-xs) {
+		margin-top: 0;
+		height: auto;
+		width: 100%;
+	}
+}
+
+.main-content.image-list {
+	padding: 0;
+	
+}
+
+.scroll-wrapper {
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	height: 100%;
+	padding: 0 0 0 15px;
+
+
+	@media (max-width: $screen-xs) {
+		padding: 0 5px;
+		width: 100%;
 	}
 }

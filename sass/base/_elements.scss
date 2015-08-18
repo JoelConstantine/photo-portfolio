@@ -11,6 +11,12 @@ header {
 	top: 0;
 	width: 100vw;
 	height: 15vh;
+
+	@media (max-width: $screen-xs) {
+		padding: 0 15px;
+		position: static;
+		height: auto;
+	}
 }
 
 footer {
@@ -20,6 +26,11 @@ footer {
 	width: 100%;
 	padding: 15px 50px;
 	text-align: right;
+
+	@media (max-width: $screen-xs) {
+		position: static;
+		padding: 10px 5px;
+	}
 }
 
 
@@ -27,21 +38,4 @@ a {
   color: #00B7FF;
 }
 
-.main-content {
-	margin-top: 15vh;
-	height: 75vh;
-}
-
-.main-content.image-list {
-	padding: 0;
-	
-}
-
-.scroll-wrapper {
-	white-space: nowrap;
-	overflow-x: auto;
-	overflow-y: hidden;
-	height: 100%;
-	padding: 0 0 0 15px;
-}
 
