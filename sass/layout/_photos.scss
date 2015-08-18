@@ -5,13 +5,15 @@
 .image-box {
 	display: inline-block;
 	height: 100%;
+
+	img {
+		height: 100%;
+		width: auto;
+		margin: 0 15px;
+	}
 }
 
-.image-box img {
-	height: 100%;
-	width: auto;
-	margin: 0 15px;
-}
+.image-box 
 
 .image-box:last-of-type img {
 	margin-right: 0;
