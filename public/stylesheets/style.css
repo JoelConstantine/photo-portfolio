@@ -14,7 +14,9 @@ footer {
   position: fixed;
   height: 10vh;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  padding: 15px 50px;
+  text-align: right; }
 
 a {
   color: #00B7FF; }
@@ -32,45 +34,6 @@ a {
   overflow-y: hidden;
   height: 100%;
   padding: 0 0 0 15px; }
-
-.photo-wrapper {
-  height: 100%; }
-
-.photo-wrapper img {
-  height: 100%;
-  width: auto; }
-
-.portfolio-box {
-  border-radius: 5px;
-  border: 1px solid #333;
-  color: #222;
-  position: relative;
-  display: block; }
-
-.portfolio-box img {
-  opacity: 0.3;
-  transition: 250ms; }
-
-.portfolio-box:hover img {
-  opacity: 0.5; }
-
-.portfolio-box:hover {
-  color: #222; }
-
-.portfolio-box:hover .portfolio-label {
-  font-size: 48px;
-  line-height: 3.5; }
-
-.portfolio-label {
-  position: absolute;
-  line-height: 4;
-  font-weight: 700;
-  font-size: 42px;
-  text-align: center;
-  width: 100%;
-  top: 0;
-  color: inherit;
-  transition: 250ms; }
 
 .main-nav {
   float: left;
@@ -96,12 +59,12 @@ a {
 .image-box {
   display: inline-block;
   height: 100%; }
+  .image-box img {
+    height: 100%;
+    width: auto;
+    margin: 0 15px; }
 
-.image-box img {
-  height: 100%;
-  width: auto;
-  margin: 0 15px; }
-
+.image-box
 .image-box:last-of-type img {
   margin-right: 0; }
 
