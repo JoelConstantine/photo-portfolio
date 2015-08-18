@@ -2,17 +2,6 @@ module.exports = function( grunt ) {
   
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
-    clean : {
-      fresh : {
-        src : ['build']
-      },
-      js : {
-        src : ['build/lib']
-      },
-      style : {
-        src : ['build/css/sass']
-      }
-    },
     concat : {
       build : {
         src: [
@@ -25,25 +14,6 @@ module.exports = function( grunt ) {
       buildjs: {
           src: 'build/js/site.js',
           dest: 'themes/joel-theme/static/js/site.js'
-      }
-    },
-    connect : {
-      'static' : {
-        options : {
-          hostname : 'localhost',
-          port : 8001,
-          base : './build'
-        }
-      }
-    },
-    imagemin : {
-      build : {
-        files : [{
-          expand : true,
-          cwd : 'src',
-          src : ['**/*.(png,jpg,gif)'],
-          dest : 'build'
-        }]
       }
     },
     sass : {
@@ -70,14 +40,6 @@ module.exports = function( grunt ) {
           spawn : false
         }
       },
-     
-      html : {
-        files :[ 'src/*', '!*.js', '!*.scss' ],
-        tasks : ['copy:html'],
-        options : {
-          spawn : false
-        }
-      }
     }
   });
 
@@ -86,11 +48,10 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.registerTask('default', ['buildCSS', 'watch']);
-  grunt.registerTask('buildJS', ['concat','uglify']);
+  //grunt.registerTask('buildJS', ['concat','uglify']);
   grunt.registerTask('buildCSS', ['sass', 'autoprefixer', 'clean:style' ])
 }
