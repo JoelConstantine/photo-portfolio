@@ -13,7 +13,9 @@ header, .header {
     header, .header {
       padding: 0 15px;
       position: static;
-      height: auto; } }
+      height: auto;
+      width: 100%;
+      overflow: auto; } }
 
 footer, .footer {
   position: fixed;
