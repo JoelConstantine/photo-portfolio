@@ -53,5 +53,5 @@ module.exports = function( grunt ) {
 
   grunt.registerTask('default', ['buildCSS', 'watch']);
   //grunt.registerTask('buildJS', ['concat','uglify']);
-  grunt.registerTask('buildCSS', ['sass', 'autoprefixer', 'clean:style' ])
+  grunt.registerTask('buildCSS', ['sass', 'autoprefixer' ])
 }
