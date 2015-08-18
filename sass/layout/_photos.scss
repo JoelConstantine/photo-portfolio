@@ -1,0 +1,26 @@
+.photo-box img {
+	max-width: 100%;
+}
+
+.image-box {
+	display: inline-block;
+	height: 100%;
+}
+
+.image-box img {
+	height: 100%;
+	width: auto;
+	margin: 0 15px;
+}
+
+.image-box:last-of-type img {
+	margin-right: 0;
+}
+
+.photo-wrapper {
+	height: 100%;
+	img {
+		height: 100%;
+		width: auto;
+	}
+}

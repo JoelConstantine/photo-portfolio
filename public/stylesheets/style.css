@@ -1,130 +1,112 @@
 body {
   padding: 0px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-}
+  font-size: 16px; }
 
-header {
-	padding: 0 50px;
-	position: fixed;
-	top: 0;
-	width: 100vw;
-	height: 15vh;
-}
+header, .header {
+  padding: 0 50px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 15vh; }
 
 footer {
-	position: fixed;
-	height: 10vh;
-	bottom: 0;
-	width: 100%;
-}
-
+  position: fixed;
+  height: 10vh;
+  bottom: 0;
+  width: 100%; }
 
 a {
-  color: #00B7FF;
-}
-
-.site-header {
-	float: left;
-	margin-right: 15px;
-}
-
-.main-nav {
-	float: left;
-	margin-top: 10px;
-}
-
-.photo-box img {
-	max-width: 100%;
-}
-
-.image-box {
-	display: inline-block;
-	height: 100%;
-}
-
-.image-box img {
-	height: 100%;
-	width: auto;
-	margin: 0 15px;
-}
-
-.image-box:last-of-type img {
-	margin-right: 0;
-}
+  color: #00B7FF; }
 
 .main-content {
-	margin-top: 15vh;
-	height: 75vh;
-}
+  margin-top: 15vh;
+  height: 75vh; }
 
 .main-content.image-list {
-	padding: 0;
-	
-}
+  padding: 0; }
 
 .scroll-wrapper {
-	white-space: nowrap;
-	overflow-x: auto;
-	overflow-y: hidden;
-	height: 100%;
-	padding: 0 0 0 15px;
-}
-
-.nav-menu {
-	padding-left: 15px;
-}
-
-.nav-element {
-	display: inline-block;
-	list-style: none;
-	margin-right: 10px;
-}
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  padding: 0 0 0 15px; }
 
 .photo-wrapper {
-	height: 100%;
-}
+  height: 100%; }
 
 .photo-wrapper img {
-	height: 100%;
-	width: auto;
-}
+  height: 100%;
+  width: auto; }
 
 .portfolio-box {
-	border-radius: 5px;
-	border: 1px solid #333;
-	color: #222;	
-	position: relative;
-	display: block;
-}
+  border-radius: 5px;
+  border: 1px solid #333;
+  color: #222;
+  position: relative;
+  display: block; }
 
 .portfolio-box img {
-	opacity: 0.3;
-	transition: 250ms;
-}
+  opacity: 0.3;
+  transition: 250ms; }
 
 .portfolio-box:hover img {
-	opacity: 0.5;
-}
+  opacity: 0.5; }
 
 .portfolio-box:hover {
-	color: #222;
-}
+  color: #222; }
 
 .portfolio-box:hover .portfolio-label {
-	font-size: 48px;
-	line-height: 3.5;
-}
+  font-size: 48px;
+  line-height: 3.5; }
 
 .portfolio-label {
-	position: absolute;
-	line-height: 4;
-	font-weight: 700;
-	font-size: 42px;
-	text-align: center;
-	width: 100%;
-	top: 0;
-	color: inherit;
-	transition: 250ms;
-}
+  position: absolute;
+  line-height: 4;
+  font-weight: 700;
+  font-size: 42px;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  color: inherit;
+  transition: 250ms; }
 
+.main-nav {
+  float: left;
+  margin-top: 10px; }
+
+.nav-menu {
+  padding-left: 15px; }
+
+.nav-element {
+  display: inline-block;
+  list-style: none;
+  margin-right: 10px; }
+  .nav-element a {
+    color: inherit; }
+
+.site-header {
+  float: left;
+  margin-right: 15px; }
+
+.photo-box img {
+  max-width: 100%; }
+
+.image-box {
+  display: inline-block;
+  height: 100%; }
+
+.image-box img {
+  height: 100%;
+  width: auto;
+  margin: 0 15px; }
+
+.image-box:last-of-type img {
+  margin-right: 0; }
+
+.photo-wrapper {
+  height: 100%; }
+  .photo-wrapper img {
+    height: 100%;
+    width: auto; }
