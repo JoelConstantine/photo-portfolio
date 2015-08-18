@@ -5,7 +5,7 @@ var portfolio = angular.module('Portfolio', [
 		'Portfolio.Portfolios'
 	]);
 
-portfolio.config(function($routeProvider) {
+portfolio.config(function($routeProvider, $locationProvider) {
 
 	$routeProvider
 		.when('/', {
@@ -17,7 +17,10 @@ portfolio.config(function($routeProvider) {
 			controllerAs: 'portfolios'
 		})
 		.when('/portfolios/:slug', {
-			templateUrl: '/portfolio/portfolios/templ/single-portfolio.html'
+			templateUrl: '/portfolio/portfolios/temp/single-portfolio.html',
+			controller: 'PortfolioController',
+			controllerAs: 'portfolio'
 		})
+		.otherwise({redirectTo: '/'});
 
 })
