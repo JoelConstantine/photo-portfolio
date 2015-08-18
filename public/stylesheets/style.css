@@ -6,10 +6,11 @@ body {
 header, .header {
   padding: 0 50px;
   position: fixed;
+  overflow: auto;
   top: 0;
   width: 100vw;
   height: 15vh; }
-  @media (max-width: 360px) {
+  @media (max-width: 360px), (max-width: 768px) and (orientation: portrait) {
     header, .header {
       padding: 0 15px;
       position: static;
@@ -22,7 +23,7 @@ footer, .footer {
   width: 100%;
   padding: 15px 50px;
   text-align: right; }
-  @media (max-width: 360px) {
+  @media (max-width: 360px), (max-width: 768px) and (orientation: portrait) {
     footer, .footer {
       position: static;
       padding: 10px 5px; } }
@@ -62,7 +63,7 @@ a {
 .site-header {
   float: left;
   margin-right: 15px; }
-  @media (max-width: 768px) {
+  @media (max-width: 360px) {
     .site-header {
       font-size: 1.5em;
       float: none;
@@ -80,7 +81,7 @@ a {
     height: 100%;
     width: auto;
     margin: 0 15px; }
-  @media (max-width: 360px) {
+  @media (max-width: 360px), (max-width: 768px) and (orientation: portrait) {
     .image-box {
       display: block;
       margin-bottom: 5px; }
@@ -94,7 +95,7 @@ a {
   .photo-wrapper img {
     height: 100%;
     width: auto; }
-    @media (max-width: 360px) {
+    @media (max-width: 360px), (max-width: 768px) and (orientation: portrait) {
       .photo-wrapper img {
         width: 100%;
         height: auto; } }
@@ -102,7 +103,7 @@ a {
 .main-content {
   margin-top: 15vh;
   height: 75vh; }
-  @media (max-width: 360px) {
+  @media (max-width: 360px), (max-width: 768px) and (orientation: portrait) {
     .main-content {
       margin-top: 0;
       height: auto;
@@ -117,7 +118,7 @@ a {
   overflow-y: hidden;
   height: 100%;
   padding: 0 0 0 15px; }
-  @media (max-width: 360px) {
+  @media (max-width: 360px), (max-width: 768px) and (orientation: portrait) {
     .scroll-wrapper {
       padding: 0 5px;
       width: 100%; } }

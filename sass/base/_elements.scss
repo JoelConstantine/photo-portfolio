@@ -8,11 +8,12 @@ header {
 	padding: 0 50px;
 	position: fixed;
 
+	overflow: auto;
 	top: 0;
 	width: 100vw;
 	height: 15vh;
 
-	@media (max-width: $screen-xs) {
+	@media (max-width: $screen-xs), (max-width: $screen-sm) and (orientation: portrait) {
 		padding: 0 15px;
 		position: static;
 		height: auto;
@@ -27,7 +28,7 @@ footer {
 	padding: 15px 50px;
 	text-align: right;
 
-	@media (max-width: $screen-xs) {
+	@media (max-width: $screen-xs), (max-width: $screen-sm) and (orientation: portrait) {
 		position: static;
 		padding: 10px 5px;
 	}
