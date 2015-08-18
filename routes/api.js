@@ -16,7 +16,11 @@ api.get('/photos', function(req, res, next) {
 api.get('/photo/:id', function(req,res,next) {
   var photos = photoModel.getFindByID(req);
   photos.on('success', function(e, data) {
-    res.json(data);
+    if (data !== null) {
+      res.json(data);
+    } else {
+      res.sendStatus(404);
+    }
   });
 })
 
@@ -64,16 +68,23 @@ api.get('/portfolios', function(req,res,next) {
 api.get('/portfolios/:slug', function(req,res,next) {
   var portfolio = portfolioModel.findBySlug(req);
   portfolio.on("success", function(data) {
-    var photos = photoModel.findByPortfolio(req, data);
+    if (data !== null) {
+      var photos = photoModel.findByPortfolio(req, data);
 
-    photos.on("success", function(doc) {
-      var returnPortfolio = data;
-      returnPortfolio.photos = doc;
-      console.log(doc);
-      res.json(returnPortfolio);
-    });
+      photos.on("success", function(doc) {
+
+        var returnPortfolio = data;
+        returnPortfolio.photos = doc;
+        res.json(returnPortfolio);
+      });
+    }
+    else {
+      res.sendStatus(404);
+    }
   });
-})
+
+});
+
 
 api.post('/portfolios', function(req,res,next) {
   var portfolios = portfolioModel.addPortfolio(req);
