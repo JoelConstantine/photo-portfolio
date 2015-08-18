@@ -10,7 +10,7 @@ header, .header {
   width: 100vw;
   height: 15vh; }
 
-footer {
+footer, .footer {
   position: fixed;
   height: 10vh;
   bottom: 0;
@@ -73,3 +73,31 @@ a {
   .photo-wrapper img {
     height: 100%;
     width: auto; }
+
+.portfolio-box {
+  border-radius: 5px;
+  border: 1px solid #333;
+  color: #222;
+  position: relative;
+  display: block; }
+  .portfolio-box:hover {
+    color: #222; }
+    .portfolio-box:hover img {
+      opacity: 0.5; }
+    .portfolio-box:hover .portfolio-label {
+      font-size: 48px;
+      line-height: 3.5; }
+  .portfolio-box img {
+    opacity: 0.3;
+    transition: 250ms; }
+
+.portfolio-label {
+  position: absolute;
+  line-height: 4;
+  font-weight: 700;
+  font-size: 42px;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  color: inherit;
+  transition: 250ms; }
