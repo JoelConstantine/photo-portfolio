@@ -16,10 +16,8 @@ var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
 
 var userAccounts = [
-  { id: 1, username: process.env.USER, password: process.env.PASS, email: process.env.EMAIL}
+  { id: 1, username: process.env.ADMIN, password: process.env.PASS, email: process.env.EMAIL}
 ];
-
-console.log(process.env.USER);
 
 function findById(id,fn) {
   var idx = id -1;
