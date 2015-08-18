@@ -124,7 +124,8 @@ a {
   border: 1px solid #333;
   color: #222;
   position: relative;
-  display: block; }
+  display: block;
+  margin-bottom: 10px; }
   .portfolio-box:hover {
     color: #222; }
     .portfolio-box:hover img {
