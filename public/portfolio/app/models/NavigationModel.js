@@ -6,11 +6,11 @@ angular.module('Portfolio.Common')
 
 			navigation.all = function() {
 				return [
-					{
+					/*{
 					'name' : 'About',
 					'slug' : '/about',
 					'subs' : []
-					},
+					},*/
 					{
 					'name' : 'Portfolios',
 					'slug' : '/portfolios',
