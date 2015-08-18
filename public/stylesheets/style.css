@@ -6,7 +6,6 @@ body {
 header, .header {
   padding: 0 50px;
   position: fixed;
-  overflow: auto;
   top: 0;
   width: 100vw;
   height: 15vh; }
@@ -34,9 +33,6 @@ a {
 .main-nav {
   float: left;
   margin-top: 10px; }
-  @media (max-width: 768px) {
-    .main-nav {
-      float: right; } }
   @media (max-width: 360px) {
     .main-nav {
       float: none;
