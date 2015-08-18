@@ -19,7 +19,7 @@ var userAccounts = [
   { id: 1, username: process.env.USER, password: process.env.PASS, email: process.env.EMAIL}
 ];
 
-
+console.log(process.env);
 
 function findById(id,fn) {
   var idx = id -1;
