@@ -93,7 +93,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up passport
-app.use( session({ secret: 'thisismyfirstsessionsecretvariable' }) );
+app.use( session({ 
+  secret: 'thisismyfirstsessionsecretvariable',
+  resave: true,
+  saveUninitialized: false
+ })
+);
 app.use( passport.initialize() );
 app.use( passport.session() );
 app.use( flash() );
