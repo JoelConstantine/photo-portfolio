@@ -19,7 +19,7 @@ var portfolioController = {
 		var portfolio = portfolioModel.findBySlug(req);
 
 		portfolio.on("success", function(data) {
-	    var photos = photoModel.findByPortfolio(req, data);
+	    var photos = photoModel.findByPortfolio(data);
 
 	    photos.on("success", function(doc) {
 	      var returnPortfolio = data;
