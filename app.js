@@ -66,9 +66,7 @@ passport.use(new LocalStrategy(
 
 
 // Setting up DB
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk(process.env.MONGO_DB);
+var db = require('./db');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
