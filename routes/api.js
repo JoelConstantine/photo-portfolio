@@ -69,7 +69,7 @@ api.get('/portfolios/:slug', function(req,res,next) {
   var portfolio = portfolioModel.findBySlug(req);
   portfolio.on("success", function(data) {
     if (data !== null) {
-      var photos = photoModel.findByPortfolio(data);
+      var photos = photoModel.findInList(data.photos);
 
       photos.on("success", function(doc) {
 
