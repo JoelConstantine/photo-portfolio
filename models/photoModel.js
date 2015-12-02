@@ -1,8 +1,7 @@
+/// <reference path="../node.d.ts" />
 var express = require('express');
 var schemas = require('../schemas.js');
 var db = require('../db.js');
-var db_table = 'mediafile'; 
-
 /* Model for Photos in the DB
 SCHEMA:
 id: null,
@@ -13,46 +12,31 @@ width: number, - Width of the fullsize image
 caption: string, - Caption describing image
 
 */
-
-
-var Photo = function(data) {
-	this.data = data;
-	this.tableName = 'mediafile';
-}
-
-Photo.getAll = function() {
-	var photos = db.get(this.table);
-
-	return photos.find({},{});
-}
-
-Photo.findByID = function(id) {
-	var photos = db.get('mediafile');
-
-	return photos.find({'_id': id})
-}
-
-Photo.findByPortfolio = function(portfolio) {
-	var photos = db.get(db_table);
-	query = { '_id' : { $in : portfolio.photos }}
-
-	return photos.find({_id: {$in: portfolio.photos }})
-}
-
-Photo.deleteByID = function(_,id) {
-	var photos = db.get(db_table);
-
-	return photos.remove({ '_id' : photoID });
-}
-
-Photo.prototype = {
-	data: {},
-	save: function(params) {
-
-	},
-	remove: function(id) {
-
-	}
-}
-
+var Photo = (function () {
+    function Photo(data) {
+        var _this = this;
+        this.getAll = function () {
+            return _this.photoDB.find({}, {});
+        };
+        this.findByID = function (id) {
+            return _this.photoDB.find({ '_id': id });
+        };
+        // Finds all photos given a list of IDs
+        this.findInList = function (idList) {
+            var query = {
+                _id: {
+                    $in: idList
+                }
+            };
+            return _this.photoDB.find(query);
+        };
+        this.deleteByID = function (id) {
+            return _this.photoDB.remove({ '_id': id });
+        };
+        this.data = data;
+        this.tableName = 'mediafile';
+        this.photoDB = db.get(this.tableName);
+    }
+    return Photo;
+})();
 module.exports = Photo;
